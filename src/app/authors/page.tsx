@@ -1,8 +1,8 @@
 "use client";
-import { SimpleGrid, Box, Heading, Text } from "@chakra-ui/react";
+import {  Box, Heading, Text } from "@chakra-ui/react";
 import { Githubuser } from "@/components/githubuser";
 import { Grid, GridItem } from "@chakra-ui/react"
-import { Topbar } from "@/components/Topbar";
+
 
 export default function AuthorsPage() {
 
@@ -20,9 +20,6 @@ export default function AuthorsPage() {
     ]
     return (
 <>
-<Topbar/>
-
-
 <Box px={8}>
     
     <Heading letterSpacing="tight" size="3xl" m={16} textAlign="center" >
