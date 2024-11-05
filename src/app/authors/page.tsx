@@ -21,9 +21,10 @@ export default function AuthorsPage() {
     return (
 <>
 <Box px={8}>
+
     
-    <Heading letterSpacing="tight" size="3xl" m={16} textAlign="center" >
-Авторы
+    <Heading  letterSpacing="tight" size="3xl" m={16} textAlign="center" >
+        Авторы
     </Heading>
     <Text mb={6} textAlign="center" fontSize="lg">
         Ознакомьтесь с профилями разработчиков на GitHub.

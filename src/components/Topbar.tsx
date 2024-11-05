@@ -43,7 +43,7 @@ export function Topbar() {
                 <Grid templateColumns="repeat(17, auto)" gap={4} alignItems="center">
                     <Heading size="md">
                         <NextLink href="/" passHref>
-                            <Link fontFamily="monospace" color={theme === "dark" ? "white" : "black"} fontSize={30} _hover={{ content: `"["`, textDecoration: "none", color: theme === "dark" ? "gray.300" : "gray.600" }}>🕷️DEV_TEST</Link>
+                            <Link fontFamily="monospace" color={theme === "dark" ? "white" : "black"} fontSize={30} _hover={{ content: `"["`, textDecoration: "none", color: theme === "dark" ? "gray.300" : "gray.600" }}>📋DEV_TEST</Link>
                         </NextLink>
                     </Heading>
                     <NextLink href="/" passHref>
@@ -54,6 +54,9 @@ export function Topbar() {
                     </NextLink>
                     <NextLink href="/about" passHref>
                         <Link color={theme === "dark" ? "white" : "black"} _hover={{  color: theme === "dark" ? "gray.300" : "gray.600" }}>О нас</Link>
+                    </NextLink>
+                    <NextLink href="/login" passHref>
+                        <Link color={theme === "dark" ? "white" : "black"} _hover={{  color: theme === "dark" ? "gray.300" : "gray.600" }}>вход</Link>
                     </NextLink>
                 </Grid>
 
