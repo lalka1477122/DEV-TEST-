@@ -1,70 +1,72 @@
 // components/Topbar.tsx
-"use client"
-import { Box, Grid, Heading, Link, Image } from "@chakra-ui/react";
+"use client";
+import React from "react";
+import { AppBar, Box, Toolbar, Typography, Button, Container } from "@mui/material";
 import NextLink from "next/link";
-import { ColorModeToggle } from "../components/color-mode-toggle";
-import { useTheme } from "next-themes";
+import { ColorModeToggle } from "@/components/ColorModeToggle";
+import { useThemeContext } from "@/components/ThemeContext"; // Импортируем useThemeContext из ThemeContext
 
 export function Topbar() {
-    const { theme, setTheme } = useTheme(); // Получаем текущую тему и функцию для её изменения
+    const { theme, toggleTheme } = useThemeContext(); // Получаем текущую тему и функцию для переключения
 
     return (
-        <Box
-            display="block"
-            position="sticky"
-            top={0}
-            left={0}
-            background={theme === "dark" ? "black" : "white"} // Фон в зависимости от темы
-            p={5}
-            zIndex={1000}
-            
-        >
-            <Grid
-                templateColumns="auto 1fr auto"
-                alignItems="center"
-                maxW="1200px"
-                mx="auto"
-                gap={4}
-            >
-                {/* Логотип */}
-                <NextLink href="/" passHref>
-                    <Link _hover={{ textDecoration: "none", color: "white" }}>
-                        {/* <Image
-                            src="https://em-content.zobj.net/source/au-kddi/190/face-with-stuck-out-tongue-and-winking-eye_1f61c.png" // Убедитесь, что путь к изображению правильный
-                            alt="Логотип"
-                            boxSize="40px" // Установите размер логотипа
-                            mr={2} // Отступ справа
-                            
-                        /> */}
-                    </Link>
-                </NextLink>
+        <AppBar  position="sticky" sx={{ background: theme.palette.mode === "dark" ? "black" : "white" }}>
+            <Toolbar>
+                <Container  maxWidth="lg" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    {/* Заголовок */}
+                    <NextLink                         style={{ cursor: "pointer" ,
+                            textDecoration: "none",
+                        }} href="/" passHref>
+                    
+                        <Typography
 
-                {/* Заголовок и навигационные ссылки */}
-                <Grid templateColumns="repeat(17, auto)" gap={4} alignItems="center">
-                    <Heading size="md">
+                            variant="h6"
+                            component="p"
+                            sx={{
+                                fontFamily: "monospace",
+                                color: theme.palette.mode === "dark" ? "white" : "black",
+                                fontSize: 30,
+                                textDecoration: "none",
+
+
+                                '&:hover': {
+     
+                                    color: theme.palette.mode === "dark" ? "gray.300" : "gray.600",
+                                },
+                            }}
+                        >
+                            📋DEV_TEST
+                        </Typography>
+                    </NextLink>
+
+                    {/* Навигационные ссылки */}
+                    <Box  sx={{ display: 'flex', gap: 3 }}>
                         <NextLink href="/" passHref>
-                            <Link fontFamily="monospace" color={theme === "dark" ? "white" : "black"} fontSize={30} _hover={{ content: `"["`, textDecoration: "none", color: theme === "dark" ? "gray.300" : "gray.600" }}>📋DEV_TEST</Link>
+                            <Button  sx={{fontFamily: "monospace"}}  color={theme.palette.mode === "dark" ? "primary" : "primary"}>
+                                Главная
+                            </Button>
                         </NextLink>
-                    </Heading>
-                    <NextLink href="/" passHref>
-                        <Link color={theme === "dark" ? "white" : "black"} _hover={{  color: theme === "dark" ? "gray.300" : "gray.600" }}>Главная</Link>
-                    </NextLink>
-                    <NextLink href="/authors" passHref>
-                        <Link color={theme === "dark" ? "white" : "black"} _hover={{  color: theme === "dark" ? "gray.300" : "gray.600" }}>Авторы</Link>
-                    </NextLink>
-                    <NextLink href="/about" passHref>
-                        <Link color={theme === "dark" ? "white" : "black"} _hover={{  color: theme === "dark" ? "gray.300" : "gray.600" }}>О нас</Link>
-                    </NextLink>
-                    <NextLink href="/login" passHref>
-                        <Link color={theme === "dark" ? "white" : "black"} _hover={{  color: theme === "dark" ? "gray.300" : "gray.600" }}>вход</Link>
-                    </NextLink>
-                </Grid>
+                        <NextLink  href="/authors" passHref>
+                            <Button sx={{fontFamily: "monospace"}}  color={theme.palette.mode === "dark" ? "primary" : "primary"}>
+                                Авторы
+                            </Button>
+                        </NextLink>
+                        <NextLink  href="/about" passHref>
+                            <Button sx={{fontFamily: "monospace"}}color={theme.palette.mode === "dark" ? "primary" : "primary"}>
+                                О нас
+                            </Button>
+                        </NextLink>
+                        <NextLink href="/login" passHref>
+                            <Button sx={{fontFamily: "monospace"}} color={theme.palette.mode ===  "dark" ? "primary" : "primary"}>
+                                Вход
+                            </Button>
+                        </NextLink>
+                    </Box>
 
-                {/* Переключатель темы */}
-                <Box justifySelf="end">
-                    <ColorModeToggle />
-                </Box>
-            </Grid>
-        </Box>
+                    {/* Переключатель темы */}
+                    <ColorModeToggle onClick={toggleTheme} /> {/* Используем toggleTheme для переключения */}
+                </Container>
+            </Toolbar>
+        </AppBar>
     );
 }
