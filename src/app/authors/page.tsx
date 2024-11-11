@@ -1,7 +1,7 @@
-
 import Grid from '@mui/material/Grid2';
 import { Box, Typography } from "@mui/material";
-import { Githubuser } from "@/components/githubuser";
+import { Githubuser } from '@/components/Githubuser';
+
 
 export default function AuthorsPage() {
     const users: string[] = [

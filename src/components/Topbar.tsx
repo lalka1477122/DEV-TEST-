@@ -1,5 +1,7 @@
 // components/Topbar.tsx
-"use client";
+//этот компонент используется для отображения верхнего бара
+
+"use client";                           
 import React from "react";
 import { AppBar, Box, Toolbar, Typography, Button, Container } from "@mui/material";
 import NextLink from "next/link";

@@ -1,4 +1,5 @@
 // src/ThemeContext.tsx
+//этот компонент используется для управления состоянием темы
 "use client"
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { ThemeProvider, Theme } from '@mui/material/styles';

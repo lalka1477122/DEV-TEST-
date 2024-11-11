@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Box, Typography, Button, CircularProgress, Link } from "@mui/material";
-
+//этот компонент используется для отображения информации о пользователе GitHub
 interface GitHubUser {
     avatar_url: string;
     html_url: string;
